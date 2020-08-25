@@ -16,7 +16,9 @@ class ProductsController extends Controller
     }
 
     public function getHome(){
-    	return view('admin.products.home');
+        $products = Product::orderBy('id', 'desc')->paginate(25);
+        $data = ['products' => $products];
+    	return view('admin.products.home', $data);
     }
 
      public function getProductAdd(){
@@ -94,5 +96,12 @@ class ProductsController extends Controller
             // endif;
 
         endif;
+    }
+
+    public function getProductEdit($id){
+        $p = Product::find($id);
+        $cats = Category::where('module', '0')->pluck('name', 'id');
+        $data = ['cats' => $cats, 'p' => $p];
+        return view('admin.products.edit', $data);
     }
 }
