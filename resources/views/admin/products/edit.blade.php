@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="inside">
-			{!!Form::open(['url' => '/admin/product/add', 'files' => true]) !!}
+			{!!Form::open(['url' => '/admin/product/'.$p->id.'/edit', 'files' => true]) !!}
 			<div class="row">
 				<div class="col-md-6">
 						<label for="name">Nombre del Producto: </label>
@@ -89,6 +89,18 @@
 		    						</span>
 		  						</div>
 							{!!Form::number('discount', $p->discount, ['class' => 'form-control', 'min' => '0.00', 'step' => 'any'])!!}
+						</div>
+				</div>
+
+				<div class="col-md-3">
+					<label for="status">Estado: </label>
+					<div class="input-group">
+								<div class="input-group-prepend">
+		    						<span class="input-group-text" id="basic-addon1">
+		    							<i class="fas fa-keyboard"></i>
+		    						</span>
+		  						</div>
+							{!!Form::select('status', ['0' => 'Borrador', '1' => 'Publico'], $p->status, ['class' => 'custom-select'])!!}
 						</div>
 				</div>
 			</div>
