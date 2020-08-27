@@ -60,6 +60,11 @@ h2,h3,h4,h5,ul,body,html
 						box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
 						color #000 !important
 						text-decoration none
+				a.active
+					background-color #ffcc80
+					box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
+					color #000 !important
+					text-decoration none
 
 .navbar
 	background-color #ffcc80
@@ -114,4 +119,47 @@ h2,h3,h4,h5,ul,body,html
 		display inline-block
 		padding 8px 12px
 		color #e65100
+
+.product_gallery
+	overflow hidden
+	.btn_submit
+		display block
+		margin-right 1%
+		width 100%
+		a
+			border 1px dashed #000
+			color #000
+			border-radius 4px
+			text-align center
+			font-size 1.5em
+			padding 12px
+			display block
+			width 100%
+			&:hover
+				border 1px solid #e65100
+				background-color #ffcc80
+				color #e65100
+	.tumbs
+		overflow hidden
+		.tumb
+			margin-top 16px
+			position relative
+			float left
+			width 48%
+			a
+				background-color rgba(0, 0, 0, .5)
+				border-radius 50%
+				color #fff
+				padding 6px 10px
+				display inline-block
+				position absolute
+				bottom 8px
+				right 8px
+			img
+				border-radius 4px
+				width 100%
+			&:nth-child(odd)
+				margin-right 4%
+
+
 

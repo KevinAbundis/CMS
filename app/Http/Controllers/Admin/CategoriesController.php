@@ -50,7 +50,7 @@ class CategoriesController extends Controller
     }
 
     public function getCategoryEdit($id){
-        $cat = Category::find($id);
+        $cat = Category::findOrFail($id);
         $data = ['cat' => $cat];
         return view('admin.categories.edit', $data);
     }
@@ -70,7 +70,7 @@ class CategoriesController extends Controller
         if($validator->fails()):
             return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typealert','danger');
         else:
-            $c = Category::find($id);
+            $c = Category::findOrFail($id);
             $c->module = $request->input('module');
             $c->name = e($request->input('name'));
             $c->slug = Str::slug($request->input('name'));
@@ -84,7 +84,7 @@ class CategoriesController extends Controller
     }
 
     public function getCategoryDelete($id){
-        $c = Category::find($id);
+        $c = Category::findOrFail($id);
          if($c->delete()):
             return back()->with('message','Eliminado con éxito.')->with('typealert','success');
         endif;

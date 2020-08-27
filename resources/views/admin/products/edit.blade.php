@@ -131,6 +131,32 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="panel shadow mtop16">
+				<div class="header">
+					<h2 class="title"><i class="fas fa-images"></i>	Galería</h2>
+					<div class="inside product_gallery">
+						{!! Form::open(['url' => '/admin/product/'.$p->id.'/gallery/add', 'files' => true, 'id' => 'form_product_gallery']) !!}
+						{!! Form::file('file_image', ['id' => 'product_file_image', 'accept' => 'image/*', 'style' => 'display: none;', 'required']) !!}
+						{!! Form::close() !!}
+						<div class="btn_submit">
+							<a href="#" id="btn_product_file_image"><i class="fas fa-plus"></i></a>
+						</div>
+
+						<div class="tumbs">
+							@foreach($p->getGallery as $img)
+							<div class="tumb">
+								<a href="{{ url('/admin/product/'.$p->id.'/gallery/'.$img->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Eliminar">
+									<i class="fas fa-trash-alt"></i>
+								</a>
+								<img src="{{ url('/uploads/'.$img->file_path.'/t_'.$img->file_name) }}">
+							</div>
+							@endforeach
+						</div>
+
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
