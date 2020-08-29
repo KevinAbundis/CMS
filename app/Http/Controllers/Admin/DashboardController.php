@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function __Contruct(){
+    public function __construct(){
     	$this->middleware('auth');
+    	$this->middleware('user.status');
     	$this->middleware('isadmin');
     }
 

@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Category;
 use Validator, Str;
+
+use App\Http\Models\Category;
+
 
 class CategoriesController extends Controller
 {
-    public function __Contruct(){
+    public function __construct(){
     	$this->middleware('auth');
+        $this->middleware('user.status');
     	$this->middleware('isadmin');
     }
 

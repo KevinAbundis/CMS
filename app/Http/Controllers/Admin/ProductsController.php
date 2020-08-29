@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Models\Category, App\Http\Models\Product, App\Http\Models\PGallery;
+
 use Validator, Str, Config, Image;
 
 class ProductsController extends Controller
 {
-     public function __Contruct(){
+     public function __construct(){
     	$this->middleware('auth');
+        $this->middleware('user.status');
     	$this->middleware('isadmin');
     }
 
