@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator, Hash, Auth;
+use Validator, Hash, Auth, Mail, Str;
 use App\User;
+use App\Mail\UserSendRecover, App\Mail\UserSendNewPassword;
 
 class ConnectController extends Controller
 {
@@ -94,6 +95,80 @@ class ConnectController extends Controller
             return redirect('/login')->with('message','Su usuario fue suspendido.')->with('typealert','danger');
         else:
             return redirect('/');
+        endif;
+    }
+
+    public function getRecover(){
+        return view('connect.recover');
+    }
+
+    public function postRecover(Request $request){
+        $rules = [
+            'email' => 'required|email'
+        ];
+
+        $messages = [
+            'email.required' => 'Su correo electrónico es requerido.',
+            'email.email' => 'El formato de su correo electrónico es invalido.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typealert','danger');
+        else:
+            $user = User::where('email', $request->input('email'))->count();
+            if($user == "1"):
+                $user = User::where('email', $request->input('email'))->first();
+                $code = rand(100000, 999999);
+                $data = ['name' => $user->name, 'email' => $user->email, 'code' => $code];
+                $u = User::find($user->id);
+                $u->password_code = $code;
+                if($u->save()):
+                Mail::to($user->email)->send(new UserSendRecover($data));
+                return redirect('/reset?email='.$user->email)->with('message','Ingrese el código que le hemos enviado a su correo electrónico.')->with('typealert','success');
+                endif;
+                //return view('emails.user_password_recover', $data);
+            else:
+                return back()->with('message','El correo electrónico no existe.')->with('typealert','danger');
+            endif;
+        endif;
+    }
+
+    public function getReset(Request $request){
+        $data = ['email' => $request->get('email')];
+        return view('connect.reset', $data);
+    }
+
+    public function postReset(Request $request){
+        $rules = [
+            'email' => 'required|email',
+            'code' => 'required',
+        ];
+
+        $messages = [
+            'email.required' => 'Su correo electrónico es requerido.',
+            'email.email' => 'El formato de su correo electrónico es invalido.',
+            'code.required' => 'El código de recuperación es requerido.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typealert','danger');
+        else:
+            $user = User::where('email', $request->input('email'))->where('password_code', $request->input('code'))->count();
+            if($user == "1"):
+                $user = User::where('email', $request->input('email'))->where('password_code', $request->input('code'))->first();
+                $new_password = Str::random(8);
+                $user->password = Hash::make($new_password);
+                $user->password_code = null;
+                if($user->save()):
+                    $data = ['name' => $user->name, 'password' => $new_password];
+                    Mail::to($user->email)->send(new UserSendNewPassword($data));
+                    return redirect('/login')->with('message','La contraseña fue restablecida con éxito, le hemos enviado un correo electrónico con su nueva contraseña para que pueda iniciar sesión.')->with('typealert','success');
+                endif;
+            else:
+                return back()->with('message','El correo electrónico o el código de recuperación son erróneos.')->with('typealert','danger');
+            endif;
         endif;
     }
 

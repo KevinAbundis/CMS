@@ -34,7 +34,7 @@ class UsersController extends Controller
     public function getUserBanned($id){
         $u = User::findOrFail($id);
         if($u->status == "100"):
-            $u->status = "1";
+            $u->status = "0";
             $msg = "Usuario activado nuevamente con éxito.";
         else:
             $u->status = "100";
