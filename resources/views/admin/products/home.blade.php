@@ -16,11 +16,13 @@
 		</div>
 
 		<div class="inside">
+			@if(kvfj(Auth::user()->permissions, 'product_add'))
 			<div class="btns">
 				<a href="{{ url('/admin/product/add') }}" class="btn btn-primary">
 					<i class="fas fa-plus-circle"></i>	Agregar Producto
 				</a>
 			</div>
+			@endif
 			<table class="table table-striped mtop16">
 				<thead>
 					<tr>
@@ -46,12 +48,17 @@
 						<td>{{ $p->price }}</td>
 						<td>
 							<div class="opts">
+								@if(kvfj(Auth::user()->permissions, 'product_edit'))
 								<a href="{{ url('/admin/product/'.$p->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Editar">
 									<i class="fas fa-edit"></i>
 								</a>
+								@endif
+
+								@if(kvfj(Auth::user()->permissions, 'product_delete'))
 								<a href="{{ url('/admin/product/'.$p->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Eliminar">
 									<i class="fas fa-trash-alt"></i>
 								</a>
+								@endif
 							</div>
 						</td>
 					</tr>
