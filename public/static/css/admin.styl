@@ -95,6 +95,41 @@ h2,h3,h4,h5,ul,body,html
 				color #19213d
 				font-size 1.1em
 				padding 12px 16px
+			ul
+				display inline-block
+				float right
+				margin-right 12px
+				li
+					display inline-block
+					position relative
+					a
+						display inline-block
+						padding 12px
+						color #000
+						&:hover
+							background-color #ffcc80
+							color #000
+							text-decoration none
+						i
+							color #e65100
+					ul
+						display none
+						background-color #fff
+						position absolute
+						float none
+						width 160px
+						li
+							display inline-block
+							width 100%
+							border-bottom 1px solid #f0f0f0
+							&:last-child
+								border-bottom 0px
+							a
+								display block
+								width value
+					&:hover
+						ul
+							display block
 		.inside
 			padding 16px
 			.btns
@@ -114,11 +149,11 @@ h2,h3,h4,h5,ul,body,html
 
 .opts
 	a
-		border-radius 4px
-		border 1px solid #dedede
+		border-radius 5px
+		border 1px solid #616161
 		display inline-block
 		padding 8px 12px
-		color #e65100
+		color #000
 
 .product_gallery
 	overflow hidden

@@ -11,7 +11,7 @@ Route::prefix('/admin')->group(function(){
 	Route::post('/user/{id}/permissions','Admin\UsersController@postUserPermissions')->name('user_permissions');
 
 	//Module Products
-	Route::get('/products', 'Admin\ProductsController@getHome')->name('products');
+	Route::get('/products/{status}', 'Admin\ProductsController@getHome')->name('products');
 	Route::get('/product/add', 'Admin\ProductsController@getProductAdd')->name('product_add');
 	Route::get('/product/{id}/edit', 'Admin\ProductsController@getProductEdit')->name('product_edit');
 	Route::post('/product/add', 'Admin\ProductsController@postProductAdd')->name('product_add');

@@ -18,8 +18,23 @@ class ProductsController extends Controller
     	$this->middleware('isadmin');
     }
 
-    public function getHome(){
-        $products = Product::with(['cat'])->orderBy('id', 'desc')->paginate(25);
+    public function getHome($status){
+        switch ($status) {
+            case '0':
+                 $products = Product::with(['cat'])->where('status', '0')->orderBy('id', 'desc')->paginate(25);
+                break;
+            case '1':
+                 $products = Product::with(['cat'])->where('status', '1')->orderBy('id', 'desc')->paginate(25);
+                break;
+            case 'all':
+                 $products = Product::with(['cat'])->orderBy('id', 'desc')->paginate(25);
+                break;
+            case 'trash':
+                 $products = Product::with(['cat'])->onlyTrashed()->orderBy('id', 'desc')->paginate(25);
+                break;
+
+        }
+
         $data = ['products' => $products];
     	return view('admin.products.home', $data);
     }
