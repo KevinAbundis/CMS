@@ -255,4 +255,30 @@ class ProductsController extends Controller
         }
 
     }
+
+    public function postProductSearch(Request $request){
+        $rules = [
+            'search' => 'required',
+        ];
+
+        $messages = [
+            'search.required' => 'El campo consulta es requerido.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typealert','danger')->withInput();
+        else:
+            switch ($request->input('filter')):
+                case '0':
+                    $products = Product::with(['cat'])->where('name', 'LIKE', '%'.$request->input('search').'%')->where('status', $request->input('status'))->orderBy('id', 'desc')->get();
+                    break;
+                case '1':
+                    $products = Product::with(['cat'])->where('code', $request->input('search'))->orderBy('id', 'desc')->get();
+                    break;
+            endswitch;
+            $data = ['products' => $products];
+            return view('admin.products.search', $data);
+        endif;
+    }
 }
