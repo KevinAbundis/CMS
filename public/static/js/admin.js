@@ -28,12 +28,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	document.getElementsByClassName('lk-'+route)[0].classList.add('active');
 
+	//Eliminar producto
+	btn_deleted = document.getElementsByClassName('btn-deleted');
+	for(i=0; i< btn_deleted.length; i++){
+		btn_deleted[i].addEventListener('click', delete_object);
+	}
+
 });
 
 $(document).ready(function(){
 	editor_init('editor');
 
 });
+
 function editor_init(field){
 	CKEDITOR.replace(field,{
 		toolbar: [
@@ -41,5 +48,42 @@ function editor_init(field){
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'BulletedList', 'Strike', 'Image', 'Link', 'Unlink', 'Blockquote'] },
 		{ name: 'document', item: ['CodeSnippet', 'EmojiPanel', 'Preview', 'Source'] }
 		]
+	});
+}
+
+//Función para eliminar producto
+function delete_object(e){
+	e.preventDefault();
+	var object = this.getAttribute('data-object');
+	var action =  this.getAttribute('data-action');
+	var path = this.getAttribute('data-path');
+	var url = base + '/' + path + '/' + object + '/' + action;
+	//console.log(object, action, path, url);
+	var title, text, icon;
+
+	if(action == "delete"){
+		title = "¿Estás seguro de eliminar este objeto?";
+		text = "Recuerda que esta acción enviará este elemento a la papelera o lo eliminará de forma definitiva. ";
+		icon = "warning";
+	}
+
+	if(action == "restore"){
+		title = "¿Quieres restaurar este elemento?";
+		text = "Está acción restaurará este elemento y estará activo en la base de datos. ";
+		icon = "info";
+	}
+
+
+	swal({
+	  title: title,
+	  text: text,
+	  icon: icon,
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {
+	  	window.location.href = url;
+	  }
 	});
 }

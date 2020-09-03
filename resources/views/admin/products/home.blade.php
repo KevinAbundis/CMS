@@ -91,9 +91,15 @@
 								@endif
 
 								@if(kvfj(Auth::user()->permissions, 'product_delete'))
-								<a href="{{ url('/admin/product/'.$p->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Eliminar">
-									<i class="fas fa-trash-alt"></i>
-								</a>
+									@if(is_null($p->deleted_at))
+										<a href="#" data-path="admin/product" data-action="delete" data-object="{{ $p->id }}" data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn-deleted">
+											<i class="fas fa-trash-alt"></i>
+										</a>
+									@else
+										<a href="{{ url('/admin/product/'.$p->id.'/restore') }}" data-path="admin/product" data-action="restore" data-object="{{ $p->id }}" data-toggle="tooltip" data-placement="top" title="Restaurar" class="btn-deleted">
+											<i class="fas fa-trash-restore"></i>
+										</a>
+									@endif
 								@endif
 							</div>
 						</td>

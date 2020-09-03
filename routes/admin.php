@@ -14,6 +14,8 @@ Route::prefix('/admin')->group(function(){
 	Route::get('/products/{status}', 'Admin\ProductsController@getHome')->name('products');
 	Route::get('/product/add', 'Admin\ProductsController@getProductAdd')->name('product_add');
 	Route::get('/product/{id}/edit', 'Admin\ProductsController@getProductEdit')->name('product_edit');
+	Route::get('/product/{id}/delete', 'Admin\ProductsController@getProductDelete')->name('product_delete');
+	Route::get('/product/{id}/restore', 'Admin\ProductsController@getProductRestore')->name('product_delete');
 	Route::post('/product/add', 'Admin\ProductsController@postProductAdd')->name('product_add');
 	Route::post('/product/search', 'Admin\ProductsController@postProductSearch')->name('product_search');
 	Route::post('/product/{id}/edit', 'Admin\ProductsController@postProductEdit')->name('product_edit');

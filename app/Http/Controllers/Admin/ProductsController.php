@@ -281,4 +281,21 @@ class ProductsController extends Controller
             return view('admin.products.search', $data);
         endif;
     }
+
+    public function getProductDelete($id){
+        $p = Product::findOrFail($id);
+
+        if($p->delete()):
+            return back()->with('message','Producto enviado a la papelera de reciclaje.')->with('typealert','success');
+        endif;
+    }
+
+
+    public function getProductRestore($id){
+        $p = Product::onlyTrashed()->where('id', $id)->first();
+
+        if($p->restore()):
+            return redirect('/admin/product/'.$p->id.'/edit')->with('message','Producto se restauró con éxito.')->with('typealert','success');
+        endif;
+    }
 }
