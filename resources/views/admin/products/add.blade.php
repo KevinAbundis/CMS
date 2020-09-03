@@ -95,6 +95,32 @@
 			</div>
 
 			<div class="row mtop16">
+				<div class="col-md-3">
+					<label for="inventory">Inventario: </label>
+					<div class="input-group">
+								<div class="input-group-prepend">
+		    						<span class="input-group-text" id="basic-addon1">
+		    							<i class="fas fa-keyboard"></i>
+		    						</span>
+		  						</div>
+							{!!Form::number('inventory', 0, ['class' => 'form-control', 'min' => '0.00'])!!}
+						</div>
+				</div>
+
+				<div class="col-md-3">
+					<label for="code">Código de Sistema: </label>
+					<div class="input-group">
+								<div class="input-group-prepend">
+		    						<span class="input-group-text" id="basic-addon1">
+		    							<i class="fas fa-keyboard"></i>
+		    						</span>
+		  						</div>
+							{!!Form::text('code', 0, ['class' => 'form-control'])!!}
+						</div>
+				</div>
+			</div>
+
+			<div class="row mtop16">
 				<div class="col-md-12">
 					<label for="content">Descripción: </label>
 					{!!Form::textarea('content', null, ['class' => 'form-control', 'id' => 'editor'])!!}

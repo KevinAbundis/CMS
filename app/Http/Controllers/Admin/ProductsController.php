@@ -64,12 +64,14 @@ class ProductsController extends Controller
             //Variables que se guardarán en la base de datos
             $product = new Product;
             $product->status = '0';
+            $product->code = e($request->input('code'));
             $product->name = e($request->input('name'));
             $product->slug = Str::slug($request->input('name'));
             $product->category_id = $request->input('category');
             $product->file_path = date('Y-m-d');
             $product->image = $filename;
             $product->price = $request->input('price');
+            $product->inventory = e($request->input('inventory'));
             $product->in_discount = $request->input('indiscount');
             $product->discount = $request->input('discount');
             $product->content = e($request->input('content'));
@@ -136,6 +138,7 @@ class ProductsController extends Controller
             $ipp = $product->file_path; //información previa
             $ip = $product->image;//información previa
             $product->status = $request->input('status');
+            $product->code = e($request->input('code'));
             $product->name = e($request->input('name'));
             //$product->slug = Str::slug($request->input('name'));
             $product->category_id = $request->input('category');
@@ -151,6 +154,7 @@ class ProductsController extends Controller
                 $product->image = $filename;
             endif;
             $product->price = $request->input('price');
+            $product->inventory = e($request->input('inventory'));
             $product->in_discount = $request->input('indiscount');
             $product->discount = $request->input('discount');
             $product->content = e($request->input('content'));
