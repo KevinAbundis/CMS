@@ -82,6 +82,8 @@ class UsersController extends Controller
         $u = User::findOrFail($id);
         $permissions = [
             'dashboard' => $request->input('dashboard'),
+            'dashboard_small_stats' => $request->input('dashboard_small_stats'),
+            'dashboard_sell_today' => $request->input('dashboard_sell_today'),
             'products' => $request->input('products'),
             'product_add' => $request->input('product_add'),
             'product_edit' => $request->input('product_edit'),
