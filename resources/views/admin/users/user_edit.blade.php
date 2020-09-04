@@ -68,12 +68,10 @@
 						<div class="col-md-6">
 							<label for="module">Tipo de Usuario: </label>
 							<div class="input-group">
-								<div class="input-group-prepend">
 									<span class="input-group-text" id="basic-addon1">
 										<i class="fas fa-keyboard"></i>
 									</span>
-								</div>
-								{!!Form::select('user_type', getRoleUserArray('list', null), $u->role, ['class' => 'custom-select'])!!}
+								{!!Form::select('user_type', getRoleUserArray('list', null), $u->role, ['class' => 'form-select'])!!}
 							</div>
 						</div>
 					</div>

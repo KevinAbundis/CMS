@@ -23,11 +23,9 @@
 				<div class="col-md-6">
 						<label for="name">Nombre del Producto: </label>
 							<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
 							{!!Form::text('name', $p->name, ['class' => 'form-control'])!!}
 						</div>
 				</div>
@@ -35,22 +33,22 @@
 				<div class="col-md-3">
 					<label for="category">Categoría: </label>
 					<div class="input-group">
-									<div class="input-group-prepend">
 			    						<span class="input-group-text" id="basic-addon1">
 			    							<i class="fas fa-keyboard"></i>
 			    						</span>
-			  						</div>
-								{!!Form::select('category', $cats, $p->category_id, ['class' => 'custom-select'])!!}
+								{!!Form::select('category', $cats, $p->category_id, ['class' => 'form-select'])!!}
 					</div>
 				</div>
 
 				<div class="col-md-3">
 					<label for="name">Imagen Destacada: </label>
-					<div class="custom-file">
-						{!!Form::file('img', ['class' => 'custom-file-input', 'id' => 'customFile',  'accept' => 'image/*']) !!}
-						 <label class="custom-file-label" for="customFile">Choose file</label>
+					<div class="form-file">
+						{!!Form::file('img', ['class' => 'form-file-input', 'id' => 'customFile',  'accept' => 'image/*']) !!}
+						<label class="form-file-label" for="customFile">
+							<span class="form-file-text">Choose file...</span>
+							<span class="form-file-button">Browse</span>
+						</label>
 					</div>
-
 				</div>
 
 			</div>
@@ -59,11 +57,9 @@
 				<div class="col-md-3">
 					<label for="price">Precio: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
 							{!!Form::number('price', $p->price, ['class' => 'form-control', 'min' => '0.00', 'step' => 'any'])!!}
 						</div>
 				</div>
@@ -71,23 +67,19 @@
 				<div class="col-md-3">
 					<label for="indiscount">¿En Descuento?: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
-							{!!Form::select('indiscount', ['0' => 'No', '1' => 'Sí'], $p->in_discount, ['class' => 'custom-select'])!!}
+							{!!Form::select('indiscount', ['0' => 'No', '1' => 'Sí'], $p->in_discount, ['class' => 'form-select'])!!}
 						</div>
 				</div>
 
 				<div class="col-md-3">
 					<label for="discount">Descuento: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
 							{!!Form::number('discount', $p->discount, ['class' => 'form-control', 'min' => '0.00', 'step' => 'any'])!!}
 						</div>
 				</div>
@@ -95,12 +87,10 @@
 				<div class="col-md-3">
 					<label for="status">Estado: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
-							{!!Form::select('status', ['0' => 'Borrador', '1' => 'Publico'], $p->status, ['class' => 'custom-select'])!!}
+							{!!Form::select('status', ['0' => 'Borrador', '1' => 'Publico'], $p->status, ['class' => 'form-select'])!!}
 						</div>
 				</div>
 			</div>
@@ -109,11 +99,9 @@
 				<div class="col-md-3">
 					<label for="inventory">Inventario: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
 							{!!Form::number('inventory', $p->inventory, ['class' => 'form-control', 'min' => '0.00'])!!}
 						</div>
 				</div>
@@ -121,11 +109,9 @@
 				<div class="col-md-3">
 					<label for="code">Código de Sistema: </label>
 					<div class="input-group">
-								<div class="input-group-prepend">
 		    						<span class="input-group-text" id="basic-addon1">
 		    							<i class="fas fa-keyboard"></i>
 		    						</span>
-		  						</div>
 							{!!Form::text('code', $p->code, ['class' => 'form-control'])!!}
 						</div>
 				</div>

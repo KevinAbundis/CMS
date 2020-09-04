@@ -7,6 +7,16 @@ h2,h3,h4,h5,ul,body,html
 	padding 0px
 	margin 0px
 
+a
+	text-decoration none
+	&:hover
+		text-decoration none
+
+.form-control
+	&:focus
+		box-shadow none
+		outline none
+
 .mtop16
 	margin-top 16px
 
@@ -24,7 +34,7 @@ h2,h3,h4,h5,ul,body,html
 
 .sidebar
 	background-color #fff
-	min-height 120vh
+	min-height 130vh
 	.section-top
 		background-color #ffcc80
 		box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
@@ -144,6 +154,8 @@ h2,h3,h4,h5,ul,body,html
 				.nav-link
 					border 1px solid #e65100
 					margin-right 10px
+					width 48%
+					text-align center
 					color #e65100
 					&:hover
 						background-color #ffcc80

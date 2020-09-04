@@ -22,31 +22,25 @@
 			{!!Form::open(['url' => '/admin/category/add']) !!}
 				<label for="name">Nombre: </label>
 								<div class="input-group">
-									<div class="input-group-prepend">
 			    						<span class="input-group-text" id="basic-addon1">
 			    							<i class="fas fa-keyboard"></i>
 			    						</span>
-			  						</div>
 								{!!Form::text('name', null, ['class' => 'form-control'])!!}
 							</div>
 
 				<label for="module" class="mtop16">Módulo: </label>
 								<div class="input-group">
-									<div class="input-group-prepend">
 			    						<span class="input-group-text" id="basic-addon1">
 			    							<i class="fas fa-keyboard"></i>
 			    						</span>
-			  						</div>
-								{!!Form::select('module', getModulesArray(), 0, ['class' => 'custom-select'])!!}
+								{!!Form::select('module', getModulesArray(), 0, ['class' => 'form-select'])!!}
 							</div>
 
 				<label for="icon" class="mtop16">Icono: </label>
 								<div class="input-group">
-									<div class="input-group-prepend">
 			    						<span class="input-group-text" id="basic-addon1">
 			    							<i class="fas fa-keyboard"></i>
 			    						</span>
-			  						</div>
 								{!!Form::text('icon', null, ['class' => 'form-control'])!!}
 							</div>
 					{!!Form::submit('Guardar', ['class' => 'btn btn-success mtop16'])!!}
