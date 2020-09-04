@@ -32,6 +32,31 @@ class UsersController extends Controller
     	return view('admin.users.user_edit', $data);
     }
 
+    public function postUserEdit(Request $request, $id){
+        $u = User::findOrFail($id);
+        $u->role = $request->input('user_type');
+
+        if($request->input('user_type') == "1"):
+            if(is_null($u->permissions)):
+                $u->permissions = $permissions = [
+                    'dashboard' => true,
+                ];
+                $permissions = json_encode($permissions);
+                $u->permissions = $permissions;
+            endif;
+        else:
+            $u->permissions = null;
+        endif;
+
+        if($u->save()):
+            if($request->input('user_type') == "1"):
+                return redirect('/admin/user/'.$u->id.'/permissions')->with('message', 'El rol del usuario ha sido actualizado con éxito.')->with('typealert','success');
+            else:
+                return back()->with('message', 'El rol del usuario ha sido actualizado con éxito.')->with('typealert','success');
+            endif;
+        endif;
+    }
+
     public function getUserBanned($id){
         $u = User::findOrFail($id);
         if($u->status == "100"):

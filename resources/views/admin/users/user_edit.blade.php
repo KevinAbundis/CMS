@@ -61,7 +61,30 @@
 				</div>
 
 				<div class="inside">
-					.
+					@if(kvfj(Auth::user()->permissions, 'user_edit'))
+					{!! Form::open(['url' => '/admin/user/'.$u->id.'/edit']) !!}
+
+					<div class="row">
+						<div class="col-md-6">
+							<label for="module">Tipo de Usuario: </label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fas fa-keyboard"></i>
+									</span>
+								</div>
+								{!!Form::select('user_type', getRoleUserArray('list', null), $u->role, ['class' => 'custom-select'])!!}
+							</div>
+						</div>
+					</div>
+
+					<div class="row mtop16">
+						<div class="col-md-12">
+							{!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+						</div>
+					</div>
+					{!! Form::close() !!}
+					@endif
 				</div>
 			</div>
 
