@@ -9,12 +9,24 @@ body
 	font-size 14px
 	font-family: 'Roboto', sans-serif;
 
+
 a
 .btn
 	&:active
 	&:focus
 		box-shadow none
 		outline none
+
+.mtop16
+	margin-top 16px
+
+.mtop32
+	margin-top 32px
+
+.form-control
+	&:hover
+	&:focus
+		box-shadow none
 
 nav
 	background-color #fff
@@ -81,4 +93,121 @@ nav
 				border 0px !important
 				&:hover
 					background-color transparent !important
+
+.wrapper
+	.panel
+		background-color #fff
+		border-radius 6px
+		border-bottom 2px solid color1
+		width 100%
+		.header
+			border-bottom 1px solid #e8e8e8
+			h2.title
+				display inline-block
+				color #19213d
+				margin-bottom 0px
+				font-size 1.1em
+				padding 12px 16px
+			ul
+				display inline-block
+				float right
+				margin-right 12px
+				li
+					display inline-block
+					position relative
+					a
+						display inline-block
+						padding 12px
+						color #000
+						&:hover
+							background-color #ffcc80
+							color #000
+							text-decoration none
+						i
+							color #e65100
+					ul
+						display none
+						border 1px solid #f0f0f0
+						background-color #fff
+						position absolute
+						right -16px
+						float none
+						width 200px
+						li
+							display inline-block
+							width 100%
+							border-bottom 1px solid #f0f0f0
+							&:last-child
+								border-bottom 0px
+							a
+								display block
+								width value
+					&:hover
+						ul
+							display block
+		.inside
+			padding 16px
+			.btns
+				a
+					border 1px solid #000
+					color #000 !important
+					background-color #ffcc80
+
+			.nav
+				.nav-link
+					border 1px solid #e65100
+					margin-right 10px
+					width 48%
+					text-align center
+					color #e65100
+					&:hover
+						background-color #ffcc80
+						color #000
+			.form_search
+				display none
+				margin-bottom 16px
+				.btn
+					width 100%
+			.big_count
+				display block
+				text-align center
+				font-size 2em
+				width 100%
+			.edit_avatar
+				a
+					position relative
+					display block
+					width 140px
+					margin 0px auto
+					.overlay
+						align-items center
+						background-color rgba(0, 0, 0, .55)
+						width 100%
+						color #fff
+						font-size 2em
+						display none
+						justify-content center
+						position absolute
+						border-radius 50%
+						height 140px
+						img
+							width 60px
+					&:hover
+						.overlay
+							display flex
+				img
+					border-radius 50%
+					display block
+					width 100%
+				.form-control
+					display none
+			.btn-primary
+				background-color color4
+				border 0px
+				padding 8px 32px !important
+				&:hover
+					background-color color2
+					color #000
+
+
 

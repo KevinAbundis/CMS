@@ -62,6 +62,14 @@
 								@if(is_null(Auth::user()->avatar)) <img src="{{ url('/static/images/default-avatar.png') }}"> @endif Hola: {{ Auth::user()->name }}
 							</a>
 							<ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+								@if(Auth::user()->role == "1")
+									<li>
+										<a class="dropdown-item" href="{{ url('/admin') }}">
+											<i class="fas fa-chalkboard-teacher"></i> Administración
+										</a>
+									</li>
+									<li><hr class="dropdown-divider"></li>
+								@endif
 								<li>
 									<a class="dropdown-item" href="{{ url('/account/edit') }}">
 										<i class="fas fa-address-card"></i> Editar mi perfil
@@ -101,8 +109,11 @@
 	</div>
 	@endif
 
-	@section('content')
-	@show
+	<div class="wrapper">
+		<div class="container">
+			@yield('content')
+		</div>
+	</div>
 
 
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
