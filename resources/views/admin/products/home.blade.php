@@ -76,7 +76,7 @@
 						<td width="50">{{ $p->id }}</td>
 						<td width="50">
 							<a href="{{ url('/uploads/'.$p->file_path.'/'.$p->image) }}" data-fancybox="gallery">
-								<img src="{{ url('/uploads/'.$p->file_path.'/t_'.$p->image) }}" width="50" >
+								<img src="{{ url('/uploads/'.$p->file_path.'/t_'.$p->image) }}" width="50" class="rounded-circle">
 							</a>
 						</td>
 						<td>{{ $p->name }} @if($p->status == "0") <i class="fas fa-eraser" data-toggle="tooltip" data-placement="top" title="Estado: Borrador"></i> @endif</td>

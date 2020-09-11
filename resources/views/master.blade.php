@@ -46,7 +46,7 @@
 						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-id-card-alt"></i> Sobre Nosotros</a>
 					</li>
 					<li class="nav-item color">
-						<a href="{{ url('/') }}" class="nav-link"><i class="far fa-envelope-open"></i> Contacto</a>
+						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-envelope-open"></i> Contacto</a>
 					</li>
 					<li class="nav-item color">
 						<a href="{{ url('/car') }}" class="nav-link"><i class="fas fa-shopping-cart"></i> <span class="carnumber">0</span></a>
@@ -95,7 +95,7 @@
 
 
 	@if(Session::has('message'))
-	<div class="container-fluid">
+	<div class="container">
 		<div class="alert alert-{{ Session::get('typealert') }} mtop16" style="display:block; margin-bottom: 16px;">
 			{{ Session::get('message') }}
 			@if($errors->any())

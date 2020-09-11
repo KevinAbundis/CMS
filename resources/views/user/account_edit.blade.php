@@ -7,7 +7,7 @@
 		<div class="col-md-4">
 			<div class="panel shadow">
 				<div class="header">
-					<h2 class="title"><i class="far fa-user"></i>  Editar avatar</h2>
+					<h2 class="title"><i class="fas fa-user"></i>  Editar avatar</h2>
 				</div>
 				<div class="inside">
 					<div class="edit_avatar">
@@ -83,7 +83,7 @@
 		<div class="col-md-8">
 			<div class="panel shadow">
 				<div class="header">
-					<h2 class="title"><i class="far fa-address-card"></i>  Editar información</h2>
+					<h2 class="title"><i class="fas fa-address-card"></i>  Editar información</h2>
 				</div>
 				<div class="inside">
 					{!! Form::open(['url' => '/account/edit/info']) !!}
@@ -137,21 +137,21 @@
 									<span class="input-group-text" id="basic-addon1">
 										<i class="fas fa-keyboard"></i>
 									</span>
-								{!!Form::number('year', null, ['class' => 'form-control', 'min' => getUserYears()[1], 'max' => getUserYears()[0], 'required'])!!}
-								{!!Form::select('month', getMonths('list', null), null, ['class' => 'form-select'])!!}
-								{!!Form::number('day', null, ['class' => 'form-control', 'min' => 1, 'max' => 31, 'required'])!!}
+								{!!Form::number('year', $birthday[0], ['class' => 'form-control', 'min' => getUserYears()[1], 'max' => getUserYears()[0], 'required'])!!}
+								{!!Form::select('month', getMonths('list', null), $birthday[1], ['class' => 'form-select'])!!}
+								{!!Form::number('day', $birthday[2], ['class' => 'form-control', 'min' => 1, 'max' => 31, 'required'])!!}
 							</div>
 						</div>
 					</div>
 
 					<div class="row mtop16">
 						<div class="col-md-4">
-							<label for="gener">Género: </label>
+							<label for="gender">Género: </label>
 							<div class="input-group">
 									<span class="input-group-text" id="basic-addon1">
 										<i class="fas fa-keyboard"></i>
 									</span>
-								{!!Form::select('gener', ['0' => 'Sin especificar', '1' => 'Hombre', '2' => 'Mujer'], null, ['class' => 'form-select'])!!}
+								{!!Form::select('gender', ['0' => 'Sin especificar', '1' => 'Hombre', '2' => 'Mujer'], Auth::user()->gender, ['class' => 'form-select'])!!}
 							</div>
 						</div>
 					</div>

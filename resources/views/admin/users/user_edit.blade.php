@@ -21,9 +21,9 @@
 				<div class="inside">
 					<div class="mini_profile">
 						@if(is_null($u->avatar))
-						<img src="{{ url('/static/images/avatar.png') }}" class="avatar">
+							<img src="{{ url('/static/images/avatar.png') }}" class="avatar">
 						@else
-						<img src="{{ url('/uploads/user/'.$u->id.'/'.$user->avatar) }}" class="avatar">
+							<img src="{{ url('/uploads_users/'.$u->id.'/av_'.$u->avatar) }}" class="avatar">
 						@endif
 						<div class="info">
 							<span class="title"><i class="far fa-address-card"></i> Nombre:</span>
