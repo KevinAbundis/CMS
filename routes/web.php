@@ -29,3 +29,4 @@ Route::get('/logout', 'ConnectController@getLogout')->name('logout');
 
 //Module User Actions
 Route::get('/account/edit', 'UserController@getAccountEdit')->name('account_edit');
+Route::post('/account/edit/avatar', 'UserController@postAccountAvatar')->name('account_avatar_edit');
