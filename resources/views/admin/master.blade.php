@@ -22,7 +22,7 @@
 
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<script src="{{url('/static/libs/ckeditor/ckeditor.js')}}"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="{{url('/static/js/admin.js?v='.time()) }}"></script>
 	<script>
 		$(document).ready(function(){

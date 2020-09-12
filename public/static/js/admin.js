@@ -75,15 +75,15 @@ function delete_object(e){
 	}
 
 
-	swal({
-	  title: title,
-	  text: text,
-	  icon: icon,
-	  buttons: true,
-	  dangerMode: true,
-	})
-	.then((willDelete) => {
-	  if (willDelete) {
+	Swal.fire({
+		title: title,
+		text: text,
+		icon: icon,
+		showCancelButton: true,
+		confirmButtonText: 'Confirmar',
+  		cancelButtonText: 'Cancelar',
+	}).then((result) => {
+	  if (result.value) {
 	  	window.location.href = url;
 	  }
 	});
