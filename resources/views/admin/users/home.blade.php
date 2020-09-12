@@ -48,7 +48,7 @@
 					@foreach($users as $user)
 					<tr>
 						<td>{{ $user->id }}</td>
-						<td width="54">
+						<td width="70">
 							@if(is_null($user->avatar))
 								<img src="{{ url('/static/images/avatar.png') }}" class="img-fluid rounded-circle">
 							@else
