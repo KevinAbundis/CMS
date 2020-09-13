@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@yield('title') - MyCMS</title>
+	<title>@yield('title') - {{ Config::get('cms.name') }}</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="routeName" content="{{ Route::currentRouteName() }}">
 

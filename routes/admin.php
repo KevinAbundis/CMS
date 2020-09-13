@@ -3,6 +3,10 @@
 Route::prefix('/admin')->group(function(){
 	Route::get('/', 'Admin\DashboardController@getDashboard')->name('dashboard');
 
+	//Module Setting
+	Route::get('/settings','Admin\SettingsController@getHome')->name('settings');
+	Route::post('/settings','Admin\SettingsController@postHome')->name('settings');
+
 	//Module Users
 	Route::get('/users/{status}','Admin\UsersController@getUsers')->name('user_list');
 	Route::get('/user/{id}/edit','Admin\UsersController@getUserEdit')->name('user_edit');
