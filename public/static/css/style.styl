@@ -35,6 +35,12 @@ nav
 	.navbar-brand
 		img
 			width 140px
+	.navbar-toggler
+		color color4
+		&:active
+		&:focus
+			outline none
+			box-shadow none
 	.navbar-nav
 		li.nav-item
 			a.nav-link
@@ -211,5 +217,53 @@ nav
 					background-color color2
 					color #000
 
+
+@media only screen and (max-width 728px)
+	nav
+		.navbar-nav
+			display block !important
+			margin-top 16px
+			overflow hidden
+			li.nav-item
+				float left
+				display block
+				margin-right 0px
+				margin-bottom 12px
+				width 50%
+				a.nav-link
+					text-align center
+					span
+						display block
+						font-size 1em
+						font-weight normal
+						margin-top 4px
+						width 100%
+					i
+						font-size 3em
+				&:last-child
+					float inline-end
+					width 100%
+			li.link-acc
+				a
+					font-size 1.2em
+					width 50% !important
+					i
+						font-size 1em !important
+			li.link-user
+				border 1px solid #d6d6d6 !important
+				border-radius 6px
+				padding 8px
+				a
+					display block
+					font-size 1.2em
+					width 100% !important
+					img
+						width 36px
+				ul.dropdown-menu
+					hr.dropdown-divider
+						top 0px !important
+						display none
+				ul.shadow
+					box-shadow none !important
 
 

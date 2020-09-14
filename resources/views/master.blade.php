@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@yield('title') - MADECMS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="routeName" content="{{ Route::currentRouteName() }}">
 
@@ -30,23 +31,23 @@
 	<nav class="navbar navbar-expand-lg shadow">
 		<div class="container">
 			<a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/static/images/linio-logo.png') }}"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigationMain" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
 			</button>
 
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="navigationMain">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item color">
-						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-home"></i> <span>Inicio</span></a>
 					</li>
 					<li class="nav-item color">
-						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-store-alt"></i> Tienda</a>
+						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-store-alt"></i> <span>Tienda</span></a>
 					</li>
 					<li class="nav-item color">
-						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-id-card-alt"></i> Sobre Nosotros</a>
+						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-id-card-alt"></i> <span>Sobre Nosotros</span></a>
 					</li>
 					<li class="nav-item color">
-						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-envelope-open"></i> Contacto</a>
+						<a href="{{ url('/') }}" class="nav-link"><i class="fas fa-envelope-open"></i> <span>Contacto</span></a>
 					</li>
 					<li class="nav-item color">
 						<a href="{{ url('/car') }}" class="nav-link"><i class="fas fa-shopping-cart"></i> <span class="carnumber">0</span></a>
