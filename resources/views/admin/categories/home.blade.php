@@ -19,7 +19,7 @@
 
 		<div class="inside">
 			@if(kvfj(Auth::user()->permissions, 'category_add'))
-			{!!Form::open(['url' => '/admin/category/add']) !!}
+			{!!Form::open(['url' => '/admin/category/add', 'files' => true]) !!}
 				<label for="name">Nombre: </label>
 								<div class="input-group">
 			    						<span class="input-group-text" id="basic-addon1">
@@ -37,12 +37,15 @@
 							</div>
 
 				<label for="icon" class="mtop16">Icono: </label>
-								<div class="input-group">
-			    						<span class="input-group-text" id="basic-addon1">
-			    							<i class="fas fa-keyboard"></i>
-			    						</span>
-								{!!Form::text('icon', null, ['class' => 'form-control'])!!}
-							</div>
+								<div class="form-file">
+									{!!Form::file('icon', ['class' => 'form-file-input','required', 'id' => 'customFile',  'accept' => 'image/*']) !!}
+									<label class="form-file-label" for="customFile">
+										<span class="form-file-text">Choose file...</span>
+										<span class="form-file-button">Browse</span>
+									</label>
+								</div>
+
+
 					{!!Form::submit('Guardar', ['class' => 'btn btn-success mtop16'])!!}
 			{!!Form::close()!!}
 			@endif
@@ -65,7 +68,7 @@
 			<table class="table mtop16">
 				<thead>
 					<tr>
-						<td width="32"></td>
+						<td width="64"></td>
 						<td>Nombre</td>
 						<td width="150"></td>
 					</tr>
@@ -73,7 +76,11 @@
 				<tbody>
 					@foreach($cats as $cat)
 					<tr>
-						<td>{!! htmlspecialchars_decode($cat->icono) !!}</td>
+						<td>
+							@if(!is_null($cat->icono))
+								<img src="{{url('/uploads/'.$cat->file_path.'/'.$cat->icono)}}" class="img-fluid">
+							@endif
+						</td>
 						<td>{{$cat->name}}</td>
 						<td>
 							<div class="opts">

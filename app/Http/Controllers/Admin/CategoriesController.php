@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Validator, Str;
+use Validator, Str, Config;
 
 use App\Http\Models\Category;
 
@@ -28,7 +28,7 @@ class CategoriesController extends Controller
     public function postCategoryAdd(Request $request){
     	$rules = [
     		'name' => 'required',
-    		'icon' => 'required'
+    		'icon' => 'required',
     	];
 
     	$messages = [
@@ -40,12 +40,25 @@ class CategoriesController extends Controller
     	if($validator->fails()):
     		return back()->withErrors($validator)->with('message','Se ha producido un error.')->with('typealert','danger');
     	else:
+
+            //Esto sirve para guardar la imagen del producto
+            $path = '/'.date('Y-m-d'); //2020-02-14
+            $fileExt = trim($request->file('icon')->getClientOriginalExtension());
+            $upload_path = Config::get('filesystems.disks.uploads.root');
+            $name = Str::slug(str_replace($fileExt, '', $request->file('icon')->getClientOriginalName()));
+            $filename = rand(1,999).'-'.$name.'.'.$fileExt;
+
+
     		$c = new Category;
     		$c->module = $request->input('module');
     		$c->name = e($request->input('name'));
     		$c->slug = Str::slug($request->input('name'));
-    		$c->icono = e($request->input('icon'));
+            $c->file_path = date('Y-m-d');
+    		$c->icono = $filename;
     		if($c->save()):
+                if($request->hasFile('icon')):
+                    $fl = $request->icon->storeAs($path, $filename, 'uploads');
+                endif;
     			return back()->with('message','Guardado con éxito.')->with('typealert','success');
     		endif;
 
@@ -62,12 +75,10 @@ class CategoriesController extends Controller
     public function postCategoryEdit(Request $request, $id){
         $rules = [
             'name' => 'required',
-            'icon' => 'required'
         ];
 
         $messages = [
             'name.required' => 'Se requiere un nombre para la categoría.',
-            'icon.required' => 'Se requiere un icono para la categoría.',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -78,7 +89,23 @@ class CategoriesController extends Controller
             $c->module = $request->input('module');
             $c->name = e($request->input('name'));
             $c->slug = Str::slug($request->input('name'));
-            $c->icono = e($request->input('icon'));
+            if($request->hasFile('icon')):
+                $actual_icon = $c->icono;
+                $actual_file_path = $c->file_path;
+                $path = '/'.date('Y-m-d'); //2020-02-14
+                $fileExt = trim($request->file('icon')->getClientOriginalExtension());
+                $upload_path = Config::get('filesystems.disks.uploads.root');
+                $name = Str::slug(str_replace($fileExt, '', $request->file('icon')->getClientOriginalName()));
+                $filename = rand(1,999).'-'.$name.'.'.$fileExt;
+                $fl = $request->icon->storeAs($path, $filename, 'uploads');
+                $c->file_path = date('Y-m-d');
+                $c->icono = $filename;
+
+                if(!is_null($actual_icon)):
+                    unlink($upload_path.'/'.$actual_file_path.'/'.$actual_icon);
+                endif;
+
+            endif;
             if($c->save()):
                 return back()->with('message','Datos editados con éxito.')->with('typealert','success');
             endif;
