@@ -5,7 +5,7 @@ color4 = #e65100
 
 
 body
-	background-color #f9f9f9
+	background-color #f4f4f4
 	font-size 14px
 	font-family: 'Roboto', sans-serif;
 
@@ -216,6 +216,81 @@ nav
 				&:hover
 					background-color color2
 					color #000
+
+.home_action_bar
+	margin-top 24px
+	border-radius 4px
+	padding 16px
+	background-color #fff
+	.categories
+		display block
+		position relative
+		a.link
+			background-color #111111
+			border-radius 4px
+			color #fff
+			display block
+			text-transform uppercase
+			text-decoration none
+			padding 12px
+			width 100%
+			&:hover
+				background-color color1 !important
+		&:hover
+			ul
+				display block
+		ul
+			display none
+			list-style none
+			margin 0px
+			padding 0px
+			position absolute
+			width 100%
+			li
+				a
+					background-color #f8f8f8
+					border-radius 0px
+					color #111111
+					display block
+					padding 12px
+					text-transform uppercase
+					text-decoration none
+					img
+						position relative
+						margin-top -5px
+						margin-right 12px
+						width 20px
+					&:hover
+						background-color color1
+						color #fff
+	.input-group
+		position relative
+		i
+			position absolute
+			font-size 1.4em
+			left 12px
+			top 12px
+			z-index 10
+		.form-control
+			border-radius 4px 0px 0px 4px
+			padding 10px 16px
+			padding-left 46px
+			z-index 2
+			&:focus
+				border 1px solid color1
+				&::placeholder
+					color color1
+		&:focus-within
+			i
+				color color1
+			.btn
+				background-color color1
+				color #fff
+		.btn
+			background-color #111111
+			color #fff
+			&:hover
+				background-color color1
 
 
 @media only screen and (max-width 728px)
