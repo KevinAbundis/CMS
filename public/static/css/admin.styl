@@ -1,3 +1,10 @@
+color1 = rgba(0, 91, 86, 1)
+color2 = #00251a
+color3 = #39796b
+color4 = #ffffff
+color5 = #111111
+
+
 body
 	background-color #f5f6fa
 	font-size 14px
@@ -39,10 +46,10 @@ a
 		width 83%
 
 .sidebar
-	background-color #fff
+	background-color color4
 	min-height 130vh
 	.section-top
-		background-color #ffcc80
+		background-color color1
 		box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
 	.logo
 		display block
@@ -50,10 +57,10 @@ a
 		padding-top 24px
 		width 60%
 	.user
-		color #000 !important
+		color color4 !important
 		padding 16px
 		a
-			color #000
+			color color4 !important
 			font-size 1.2em
 			i
 				margin-left 10px
@@ -72,20 +79,20 @@ a
 					i
 						margin-right 10px
 					&:hover
-						background-color #ffcc80
+						background-color color1
 						box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
-						color #000 !important
+						color color4 !important
 						text-decoration none
 				a.active
-					background-color #ffcc80
+					background-color color1
 					box-shadow 0 0.5rem 1rem rgba(0,0,0,0.15)
-					color #000 !important
+					color color4 !important
 					text-decoration none
 
 .navbar
-	background-color #ffcc80
+	background-color color1
 	a
-		color #000 !important
+		color color4 !important
 
 .page
 	padding-top 16px
@@ -102,7 +109,7 @@ a
 	.panel
 		background-color #fff
 		border-radius 6px
-		border-bottom 2px solid #ffcc80
+		border-bottom 2px solid color1
 		width 100%
 		.header
 			border-bottom 1px solid #e8e8e8
@@ -121,13 +128,16 @@ a
 					a
 						display inline-block
 						padding 12px
-						color #000
+						color color5
 						&:hover
-							background-color #ffcc80
-							color #000
+							background-color color1
+							color color4 !important
 							text-decoration none
+							i
+								color color4
 						i
-							color #e65100
+							color color1
+
 					ul
 						display none
 						border 1px solid #f0f0f0
@@ -154,18 +164,18 @@ a
 				a
 					border 1px solid #000
 					color #000 !important
-					background-color #ffcc80
+					background-color color1
 
 			.nav
 				.nav-link
-					border 1px solid #e65100
+					border 1px solid color5
 					margin-right 10px
 					width 48%
 					text-align center
-					color #e65100
+					color color5
 					&:hover
-						background-color #ffcc80
-						color #000
+						background-color color1
+						color color4 !important
 			.form_search
 				display none
 				margin-bottom 16px
@@ -202,7 +212,7 @@ a
 			width 100%
 			&:hover
 				border 1px solid #e65100
-				background-color #ffcc80
+				background-color color1
 				color #e65100
 	.tumbs
 		overflow hidden

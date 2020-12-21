@@ -53,8 +53,8 @@
 
 
 		<div class="footer mtop16">
-			<a href="{{ url('/register') }}">¿No tienes una cuenta?, Registrate</a>
-			<a href="{{ url('/recover') }}">Recuperar contraseña</a>
+			<a href="{{ url('/register') }}" id="register">¿No tienes una cuenta?, Registrate</a>
+			<a href="{{ url('/recover') }}" id="recover">Recuperar contraseña</a>
 		</div>
 	</div>
 

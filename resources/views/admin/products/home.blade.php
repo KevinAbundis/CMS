@@ -53,7 +53,7 @@
 						{!! Form::select('status', ['0' => 'Borrador', '1' => 'Público'], 0, ['class' => 'form-control']) !!}
 					</div>
 					<div class="col-md-2">
-						{!! Form::submit('Buscar', ['class' => 'btn btn-primary']) !!}
+						{!! Form::submit('Buscar', ['class' => 'btn btn-success']) !!}
 					</div>
 				</div>
 				{!! Form::close() !!}

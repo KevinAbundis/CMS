@@ -1,3 +1,6 @@
+color1 = #004d40
+color2 = #00251a
+
 body
 	align-items center
 	background-color #f6f6f6
@@ -19,7 +22,7 @@ body
 	border 1px solid #d6d6d6
 	width 500px
 	.btn-success
-		background-color #E85722
+		background-color color1
 		border 0px
 		width 100%
 	.form-control
@@ -31,20 +34,42 @@ body
 		padding 16px
 	.header
 		padding 0px
-		// background-color #E75720
+		margin-top 16px
 		border-radius 8px 8px 0px 0px
 		a
 			img
 				display block
 				margin 0px auto
-				width 30%
+				width 50%
 	.footer
+		margin-bottom 32px
+		margin-top 32px
 		text-align center
-		a
+		a#register
+			color color2
 			display inline-block
-			font-size .8em
-			&:last-child
-				margin-left 35px
+			font-size 1em
+			float left
+			margin-left 10px
+			margin-bottom 32px
+		a#recover
+			color color2
+			display inline-block
+			font-size 1em
+			float right
+			margin-right 10px
+			margin-bottom 32px
+		a#login
+			color color2
+			display inline-block
+			font-size 1em
+		a#login2
+			color color2
+			display inline-block
+			font-size 1em
+			float right
+			margin-right 10px
+			margin-bottom 32px
 
 
 @media only screen and (max-width 728px)

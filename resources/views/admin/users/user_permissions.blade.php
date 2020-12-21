@@ -46,7 +46,7 @@
 			<div class="col-md-12">
 				<div class="panel shadow">
 					<div class="inside">
-						<input type="submit" value="Guardar" class="btn btn-primary">
+						<input type="submit" value="Guardar" class="btn btn-success">
 					</div>
 				</div>
 			</div>

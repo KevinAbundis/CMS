@@ -3,6 +3,7 @@
 @section('title', 'Inicio')
 
 @section('content')
+<section>
 	<div class="home_action_bar shadow">
 		<div class="row">
 			<div class="col-md-3">
@@ -32,4 +33,8 @@
 			</div>
 		</div>
 	</div>
+</section>
+<section>
+	@include('components/sliders_home')
+</section>
 @endsection

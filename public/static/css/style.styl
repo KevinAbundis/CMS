@@ -1,7 +1,9 @@
-color1 = #fb8c00
+color1 = rgba(0, 91, 86, 1)
 color2 = #ffbd45
-color3 = #c25e00
-color4 = #e65100
+color3 = #64dd17
+color4 = #39796b
+color5 = #111111
+color6 = #ffffff
 
 
 body
@@ -34,7 +36,7 @@ nav
 	border-bottom 2px solid color1
 	.navbar-brand
 		img
-			width 140px
+			width 180px
 	.navbar-toggler
 		color color4
 		&:active
@@ -52,13 +54,13 @@ nav
 				margin-right 4px
 				padding 5px 16px !important
 				&:hover
-					color color4
+					color color3
 			a.btn
 				border 1px solid color1
 				color #000
 				&:hover
-					background-color color2
-					color #000
+					background-color color3
+					color color5
 			ul.dropdown-menu
 				border-radius 0px 0px 4px 4px
 				background-color #fff
@@ -128,8 +130,8 @@ nav
 						padding 12px
 						color #000
 						&:hover
-							background-color #ffcc80
-							color #000
+							background-color color1
+							color color6
 							text-decoration none
 						i
 							color #e65100
@@ -169,8 +171,8 @@ nav
 					text-align center
 					color #e65100
 					&:hover
-						background-color #ffcc80
-						color #000
+						background-color color1
+						color color6
 			.form_search
 				display none
 				margin-bottom 16px
@@ -210,12 +212,12 @@ nav
 				.form-control
 					display none
 			.btn-primary
-				background-color color4
+				background-color color1
 				border 0px
 				padding 8px 32px !important
 				&:hover
-					background-color color2
-					color #000
+					background-color color3
+					color color5
 
 .home_action_bar
 	margin-top 24px
@@ -226,7 +228,7 @@ nav
 		display block
 		position relative
 		a.link
-			background-color #111111
+			background-color color1
 			border-radius 4px
 			color #fff
 			display block
@@ -235,7 +237,8 @@ nav
 			padding 12px
 			width 100%
 			&:hover
-				background-color color1 !important
+				background-color color3 !important
+				color color5
 		&:hover
 			ul
 				display block
@@ -261,8 +264,8 @@ nav
 						margin-right 12px
 						width 20px
 					&:hover
-						background-color color1
-						color #fff
+						background-color color3
+						color color5
 	.input-group
 		position relative
 		i
@@ -287,11 +290,71 @@ nav
 				background-color color1
 				color #fff
 		.btn
-			background-color #111111
+			background-color color1
 			color #fff
 			&:hover
-				background-color color1
+				background-color color3
+				color color5
 
+.mdslider
+	display flex
+	flex-wrap wrap
+	margin-top 24px
+	min-height 380px
+	overflow hidden
+	position relative
+	width 100%
+	.md-slider-item
+		align-items center
+		border-right 1px solid #fff
+		border-radius 4px
+		display none
+		background-color #fff
+		color #fff
+		font-size 4em
+		justify-content center
+		position absolute
+		min-height 380px
+		transition .4s all ease-in-out
+		width 100% !important
+	ul.navigation
+		display block
+		margin 0px
+		padding 0px
+		position absolute
+		overflow hidden
+		top calc(50% - 18px)
+		z-index 9
+		width 100%
+		li
+			display inline-flex
+			float left
+			a
+				align-items center
+				background-color color1
+				border-radius 50%
+				display flex
+				justify-content center
+				font-size 1.4em
+				height 36px
+				width 36px
+				text-decoration none
+				color #fff
+			&:first-child
+				margin-left 32px
+				a
+					i
+						position relative
+						margin-left -2px
+						margin-bottom 2px
+			&:last-child
+				float right
+				margin-right 32px
+				a
+					i
+						position relative
+						margin-left 2px
+						margin-bottom 2px
 
 @media only screen and (max-width 728px)
 	nav

@@ -78,7 +78,7 @@
 
 
 		<div class="footer mtop16">
-			<a href="{{ url('/login') }}">Ya tengo una cuenta, Ingresar</a>
+			<a href="{{ url('/login') }}" id="login">Ya tengo una cuenta, Ingresar</a>
 		</div>
 	</div>
 

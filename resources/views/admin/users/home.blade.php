@@ -19,7 +19,7 @@
 			<div class="row">
 				<div class="col-md-2 offset-md-10">
 					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+						<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
     						<i class="fas fa-filter"></i> Filtrar
   						</button>
   						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
