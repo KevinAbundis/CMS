@@ -99,6 +99,17 @@ function user_permissions(){
 			]
 		],
 
+		'sliders' => [
+			'icon' => '<i class="fas fa-images"></i>',
+			'title' => 'Módulo de Sliders',
+			'keys' =>[
+				'sliders_list' => 'Puede ver la lista de Sliders.',
+				'slider_add' => 'Puede crear Sliders.',
+				'slider_edit' => 'Puede editar Sliders.',
+				'slider_delete' => 'Puede eliminar Sliders.',
+			]
+		],
+
 		'config' => [
 			'icon' => '<i class="fas fa-cogs"></i>',
 			'title' => 'Módulo de Configuraciones',
