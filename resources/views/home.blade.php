@@ -6,7 +6,7 @@
 <section>
 	<div class="home_action_bar shadow">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="categories">
 					<a href="#" class="link"><i class="fas fa-stream"></i> Categorías</a>
 					<ul class="shadow">
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-9">
+			<div class="col-md-8">
 				{!! Form::open(['url' => '/search']) !!}
 				<div class="input-group">
 					 <i class="fas fa-search"></i>
