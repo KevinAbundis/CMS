@@ -1,5 +1,51 @@
 ## Content Management System (CMS)
 
+Main Screen
+
+![](images/main-screen.png)
+
+Create Account
+
+![](images/create-account.png)
+
+Login
+
+![](images/login.png)
+
+Recover Password
+
+![](images/recover-password.png)
+
+Admin Dashboard
+
+![](images/admin-dashboard.png)
+
+Admin Categories
+
+![](images/admin-categories.png)
+
+Admin Products
+
+![](images/admin-products.png)
+
+Admin Orders
+
+**pending
+
+Admin Users
+
+![](images/admin-users.png)
+
+Admin Sliders
+
+![](images/admin-sliders.png)
+
+Admin Settings
+
+![](images/admin-settings.png)
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
