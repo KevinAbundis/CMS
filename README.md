@@ -28,9 +28,6 @@ Admin Products
 
 ![](images/admin-products.png)
 
-Admin Orders
-
-**pending
 
 Admin Users
 
